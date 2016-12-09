@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zn-CN">
+  <head>
+    <meta charset="utf-8">
+    <title>Printer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+	  .center {
+		width: auto;
+		display: table;
+		margin-left: auto;
+		margin-right: auto;
+		} 
+
+    </style>
+  </head>
+
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="#">Printer</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li><a href="/">主页</a></li>
+              <li><a href="/printer">打印</a></li>
+			  <li><a href="/show">展示</a></li>
+              <li class="active"><a href="/about">关于</a></li>
+            </ul>
+            {% if not session.logged_in %}
+            <form class="navbar-form pull-right" action="{{ url_for('login')}}" method=post>
+              <input class="span2" type="text" name=username placeholder="username">
+              <input class="span2" type="password" name=password placeholder="Password">
+              <button type="submit" value=Login class="btn">Sign in</i
+            </form>
+            {% else %}
+            <a class = 'btn btn-success pull-right' href="{{ url_for('logout') }}">log out</a>
+			{% endif %}
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+	
+	<div class="container">
+	<div class="hero-unit">
+        <h1>3D云社区</h1>
+        <p>这是一个云打印社区，如果你需要打印，可以上传你的模型并由空闲3D打印机打印。</p>
+		<p>如果你拥有一台3D打印机，也可以加入我们让它在空闲时间得以利用，我们将支付可观的报酬。</p>
+    </div>
+	</div>
+    <footer class = 'center'>
+		<p>&copy; hustlabview 2016</p>
+    </footer>
+	
+    <script src="../static/js/jquery.min.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+  </body>
+</html>
